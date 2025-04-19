@@ -38,6 +38,15 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script>
+      (function () {
+        emailjs.init("G_Ct0Lv_GiRcBorih");
+      })();
+    </script>
   </head>
 
   <body>
@@ -62,7 +71,7 @@
         <nav
           class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0"
         >
-          <a href="" class="navbar-brand p-0">
+          <a href="./index.html" class="navbar-brand p-0">
             <img src="img/nav-logo.png" alt="Logo" />
           </a>
           <button
@@ -172,16 +181,15 @@
           <div class="row justify-content-center">
             <div class="col-lg-7">
               <div
-                class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp"
-                data-wow-delay="0.1s"
+                class="section-title position-relative text-center mb-5 pb-2"
               >
                 <h6 class="position-relative d-inline text-primary ps-4">
                   Contact Us
                 </h6>
                 <h2 class="mt-2">Contact For Any Query</h2>
               </div>
-              <div class="wow fadeInUp" data-wow-delay="0.3s">
-                <form>
+              <div>
+                <form id="contact-form" novalidate>
                   <div class="row g-3">
                     <div class="col-md-6">
                       <div class="form-floating">
@@ -190,8 +198,10 @@
                           class="form-control"
                           id="name"
                           placeholder="Your Name"
+                          required
                         />
                         <label for="name">Your Name</label>
+                        <div class="invalid-feedback">Name is required.</div>
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -201,8 +211,12 @@
                           class="form-control"
                           id="email"
                           placeholder="Your Email"
+                          required
                         />
                         <label for="email">Your Email</label>
+                        <div class="invalid-feedback">
+                          Valid email is required.
+                        </div>
                       </div>
                     </div>
                     <div class="col-12">
@@ -212,8 +226,10 @@
                           class="form-control"
                           id="subject"
                           placeholder="Subject"
+                          required
                         />
                         <label for="subject">Subject</label>
+                        <div class="invalid-feedback">Subject is required.</div>
                       </div>
                     </div>
                     <div class="col-12">
@@ -223,14 +239,21 @@
                           placeholder="Leave a message here"
                           id="message"
                           style="height: 150px"
+                          required
                         ></textarea>
                         <label for="message">Message</label>
+                        <div class="invalid-feedback">Message is required.</div>
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100 py-3" type="submit">
+                      <button
+                        class="btn btn-primary w-100 py-3"
+                        type="submit"
+                        id="submit-btn"
+                      >
                         Send Message
                       </button>
+                      <div class="mt-2 text-center" id="form-status"></div>
                     </div>
                   </div>
                 </form>
@@ -249,13 +272,19 @@
         <div class="container py-5 px-lg-5">
           <div class="row g-5">
             <div class="col-md-6 col-lg-3">
+              <img src="./img/nav-logo.png" class="w-100 h-auto" />
+            </div>
+            <div class="col-md-6 col-lg-3">
               <h5 class="text-white mb-4">Get In Touch</h5>
               <p>
                 <i class="fa fa-map-marker-alt me-3"></i>70 Temperance st M5H
                 0B1
               </p>
               <p><i class="fa fa-phone-alt me-3"></i> +141 683 05630</p>
-              <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+              <p class="d-flex align-items-center">
+                <i class="fa fa-envelope me-3"></i
+                ><small>abosedekikelomo408@gmail.com</small>
+              </p>
               <div class="d-flex pt-2">
                 <a class="btn btn-outline-light btn-social" href=""
                   ><i class="fab fa-twitter"></i
@@ -327,41 +356,15 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-lg-3">
-              <h5 class="text-white mb-4">Newsletter</h5>
-              <p>
-                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi.
-                Curabitur facilisis ornare velit non vulpu
-              </p>
-              <div class="position-relative w-100 mt-3">
-                <input
-                  class="form-control border-0 rounded-pill w-100 ps-4 pe-5"
-                  type="text"
-                  placeholder="Your Email"
-                  style="height: 48px"
-                />
-                <button
-                  type="button"
-                  class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"
-                >
-                  <i class="fa fa-paper-plane text-primary fs-4"></i>
-                </button>
-              </div>
-            </div>
           </div>
         </div>
         <div class="container px-lg-5">
           <div class="copyright">
             <div class="row">
               <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                &copy; <a class="border-bottom" href="#">Your Site Name</a>, All
+                &copy;
+                <a class="border-bottom" href="#">Berrix Consulting</a>, All
                 Right Reserved.
-
-                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                Designed By
-                <a class="border-bottom" href="https://htmlcodex.com"
-                  >HTML Codex</a
-                >
               </div>
               <div class="col-md-6 text-center text-md-end">
                 <div class="footer-menu">
@@ -395,5 +398,54 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script>
+      const form = document.getElementById("contact-form");
+      const submitBtn = document.getElementById("submit-btn");
+      const formStatus = document.getElementById("form-status");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.classList.add("was-validated");
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Sending...";
+        formStatus.innerText = "";
+        formStatus.className = "";
+
+        emailjs
+          .send("service_2zgacuv", "template_a44bn7m", {
+            name: form.name.value,
+            email: form.email.value,
+            subject: form.subject.value,
+            message: form.message.value,
+          })
+          .then(function () {
+            // ✅ Auto-reply after the main message is sent
+            return emailjs.send("service_2zgacuv", "template_te46zcs", {
+              to_name: form.name.value, // optional: for personalization
+              to_email: form.email.value, // use this in your auto-reply template
+            });
+          })
+          .then(function () {
+            form.reset();
+            form.classList.remove("was-validated");
+            formStatus.className = "text-success";
+            formStatus.innerText = "Message sent successfully!";
+          })
+          .catch(function () {
+            formStatus.className = "text-danger";
+            formStatus.innerText = "Failed to send message. Try again.";
+          })
+          .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerText = "Send Message";
+          });
+      });
+    </script>
   </body>
 </html>
